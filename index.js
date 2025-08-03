@@ -127,6 +127,25 @@ app.put('/updateUser',(req,resp)=>{
         });
     }
 });
+
+//Adding Error Route
+app.get('/error',(req,resp,next)=>{
+    throw new Error('This page is not valid') // This will trigger the error handler
+    // next(new Error('This page is not valid')); // Alternative way to trigger the error
+})
+
+//TO Handle the all other routes that are not defined
+
+app.use(function errrHandler(err,req,resp,next){
+    if(resp.headersSent) {
+        return next(err); //What ever we receive we will pass it to the next error handler
+    }
+    resp.status(500);
+    resp.render('errorPage', {
+        error: err, // Pass the error object to the view
+        message: 'Something went wrong!'
+    });
+})
 //Starting the server
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
