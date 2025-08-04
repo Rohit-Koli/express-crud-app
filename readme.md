@@ -152,5 +152,27 @@ app.get("/", (req, res) => {
 
 Let me know if you want a full working example.
 
+### Modular Structure?
+    In a basic Express app, everything (routes, logic, data) is often written in one file (like index.js). But in real-world apps, this becomes hard to manage.
+
+    Modular structure helps:
+
+    Keep code clean and organized
+
+    Separate concerns (routing, business logic, database)
+
+    Make it easy to debug, maintain, and scale
+
+    ```
+        your-app/
+    ├── index.js                 <-- Main entry point (starts server)
+    ├── routes/
+    │   └── userRoutes.js        <-- All user-related routes (URLs)
+    ├── controllers/
+    │   └── userController.js    <-- Logic behind each route (what to do)
+    ├── services/
+    │   └── userService.js       <-- Optional: Database or business logic
+    ```
+
 
 
