@@ -7,7 +7,7 @@ const app=express()
 connectDB()
 
 app.use(cors())
-
+app.use('/uploads', express.static('uploads')); //for storing images
 app.use(express.json())
 
 app.use('/user',userRoutes)
