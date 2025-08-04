@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "689073ca46b273bdaaf422a9"
+  },
+  "name": "ABC",
+  "email": "hello@mail.com",
+  "age": 23,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6890825cb1da4b189f23ec65"
+  },
+  "name": "Alan Walker",
+  "email": "Alanwalker@mail.com",
+  "age": 35,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68908402703666546dfb3372"
+  },
+  "name": "Emma Watson",
+  "email": "emmawatson@mail.com",
+  "age": 30,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6890843a703666546dfb3374"
+  },
+  "name": "John Smith",
+  "email": "johnsmith@mail.com",
+  "age": 42,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68908443703666546dfb3376"
+  },
+  "name": "Sophia Lee",
+  "email": "sophialee@mail.com",
+  "age": 27,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6890844b703666546dfb3378"
+  },
+  "name": "Liam Brown",
+  "email": "liambrown@mail.com",
+  "age": 38,
+  "__v": 0
+}]
