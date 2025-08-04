@@ -1,5 +1,5 @@
 import express from 'express'
-import {getUser,setUser,deleteUser,updateUser} from '../controllers/UserContrller.js' //Importing all the functions of out  User Controller
+import {getUserById,setUser,deleteUser,updateUser,getAllUsers} from '../controllers/UserController.js' //Importing all the functions of out  User Controller
 
 const router=express.Router() 
 /*
@@ -15,7 +15,8 @@ const router=express.Router()
 */
 
 router.post('/setUser',setUser)
-router.get('/getUser',getUser)
+router.get('/getUser',getUserById)
+router.get('/getUsers',getAllUsers)
 router.delete('/deleteUser',deleteUser)
 router.put('/updateUser',updateUser)
 
