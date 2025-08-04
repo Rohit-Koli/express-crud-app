@@ -1,6 +1,12 @@
 import express from 'express'
-import {getUserById,setUser,deleteUser,updateUser,getAllUsers} from '../controllers/UserController.js' //Importing all the functions of out  User Controller
-
+import {
+    getUserById,
+    setUser,
+    deleteUser,
+    updateUser,
+    getAllUsers} 
+    from '../controllers/UserController.js' //Importing all the functions of out  User Controller
+import upload from '../middlewares/upload.js'
 const router=express.Router() 
 /*
     ✅ const router = express.Router();
@@ -14,10 +20,10 @@ const router=express.Router()
     express.Router() → creates a sub-router, like a module inside the main app
 */
 
-router.post('/setUser',setUser)
+router.post('/setUser', upload.single('image'), setUser)
 router.get('/getUser',getUserById)
 router.get('/getUsers',getAllUsers)
 router.delete('/deleteUser',deleteUser)
-router.put('/updateUser',updateUser)
+router.put('/updateUser', upload.single('image'), updateUser);
 
 export default router

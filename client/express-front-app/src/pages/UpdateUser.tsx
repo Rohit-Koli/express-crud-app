@@ -4,7 +4,8 @@ import axios from "axios";
 
 const UpdateUser = () => {
   const { id } = useParams();
-  const [form, setForm] = useState({ name: "", email: "", age: "" });
+  const [form, setForm] = useState({ name: "", email: "", age: "", image: "" });
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,9 +18,27 @@ const UpdateUser = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedFile(e.target.files[0]);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await axios.put(`http://localhost:3000/user/updateUser?id=${id}`, form);
+
+    const formData = new FormData();
+    formData.append("name", form.name);
+    formData.append("email", form.email);
+    formData.append("age", form.age);
+    if (selectedFile) {
+      formData.append("image", selectedFile);
+    }
+
+    await axios.put(`http://localhost:3000/user/updateUser?id=${id}`, formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+
     navigate("/users");
   };
 
@@ -52,6 +71,27 @@ const UpdateUser = () => {
           className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />
+        
+        {/* Current image preview */}
+        {form.image && (
+          <div className="text-center">
+            <img
+              src={`http://localhost:3000/uploads/${form.image}`}
+              alt="Current"
+              className="w-24 h-24 mx-auto rounded-full object-cover mb-2"
+            />
+            <p className="text-gray-500 text-sm">Current Profile Image</p>
+          </div>
+        )}
+
+        {/* New image input */}
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
+          className="w-full p-2 border border-gray-300 rounded-lg"
+        />
+
         <button
           type="submit"
           className="w-full p-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-200"

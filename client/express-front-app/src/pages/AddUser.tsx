@@ -2,17 +2,36 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-const AddUser  = () => {
+const AddUser = () => {
   const [form, setForm] = useState({ name: "", email: "", age: "" });
+  const [image, setImage] = useState<File | null>(null); // ✅ Image state
   const navigate = useNavigate();
 
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setImage(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await axios.post("http://localhost:3000/user/setUser ", form);
+
+    const formData = new FormData();
+    formData.append("name", form.name);
+    formData.append("email", form.email);
+    formData.append("age", form.age);
+    if (image) {
+      formData.append("image", image);
+    }
+
+    await axios.post("http://localhost:3000/user/setUser", formData, {
+      headers: { "Content-Type": "multipart/form-data" }
+    });
+
     navigate("/users");
   };
 
@@ -42,6 +61,12 @@ const AddUser  = () => {
           onChange={handleChange} 
           required 
         />
+        <input 
+          type="file"
+          accept="image/*"
+          onChange={handleImageChange}
+          className="w-full"
+        />
         <button 
           className="w-full p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
         >
@@ -52,4 +77,4 @@ const AddUser  = () => {
   );
 };
 
-export default AddUser ;
+export default AddUser;

@@ -1,54 +1,50 @@
 [{
   "_id": {
-    "$oid": "689073ca46b273bdaaf422a9"
+    "$oid": "68909dc64040f4c9d56094c8"
+  },
+  "name": "Rohit",
+  "email": "dodi7894596@balincs.com",
+  "age": 45,
+  "__v": 0,
+  "image": "1754310051802-813375748.png"
+},
+{
+  "_id": {
+    "$oid": "6890a3b74cde835ef3c3d794"
   },
   "name": "ABC",
-  "email": "hello@mail.com",
+  "email": "hh@mail.com",
   "age": 23,
+  "image": "1754309559853-580699838.jpg",
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "6890825cb1da4b189f23ec65"
+    "$oid": "6890a6327cc929aa3f7e274d"
   },
-  "name": "Alan Walker",
-  "email": "Alanwalker@mail.com",
-  "age": 35,
+  "name": "Anjali Verma",
+  "email": "rggrtg@mail.com",
+  "age": 45,
+  "image": "1754310204940-919959994.png",
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "68908402703666546dfb3372"
+    "$oid": "6890a65e7cc929aa3f7e2753"
   },
-  "name": "Emma Watson",
-  "email": "emmawatson@mail.com",
-  "age": 30,
+  "name": "jackey Chan",
+  "email": "jacky.chan@mail.com",
+  "age": 56,
+  "image": "1754310374844-349217451.jpg",
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "6890843a703666546dfb3374"
+    "$oid": "6890a7107cc929aa3f7e2759"
   },
-  "name": "John Smith",
-  "email": "johnsmith@mail.com",
-  "age": 42,
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "68908443703666546dfb3376"
-  },
-  "name": "Sophia Lee",
-  "email": "sophialee@mail.com",
-  "age": 27,
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6890844b703666546dfb3378"
-  },
-  "name": "Liam Brown",
-  "email": "liambrown@mail.com",
-  "age": 38,
+  "name": "Sachin Tendulkar",
+  "email": "sachin.cricket@icc.com",
+  "age": 60,
+  "image": "1754310416875-716396811.jpg",
   "__v": 0
 }]

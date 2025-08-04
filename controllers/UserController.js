@@ -5,13 +5,15 @@ import * as service from '../service/UserService.js'
 
 // Create a new user
 export const setUser = async (req, resp) => {
-    try{
-        const user=await service.createUser(req.body)
-        resp.status(200).json(user)
-    }catch(error){
-        resp.status(500).json({
-            error:error.message
-        })
+    try {
+        const userData = {
+            ...req.body,
+            image: req.file ? req.file.filename : null
+        };
+        const user = await service.createUser(userData);
+        resp.status(200).json(user);
+    } catch (error) {
+        resp.status(500).json({ error: error.message });
     }
 };
 
@@ -42,15 +44,24 @@ export const deleteUser =async (req, resp) => {
 
 // Update user by ID (query param ?id=)
 export const updateUser = async (req, resp) => {
-    try {
-        const user= await service.updateUserById(req.query.id,req.body)
-        if(!user) return resp.status(404).json({message:'User Not Found'})
-        resp.json(user)
-    } catch (error) {
-        resp.status(404).json({
-            error:error.message
-        })
+  try {
+    const updatedData = { ...req.body };
+
+    // If image file is uploaded, add filename to data
+    if (req.file) {
+      updatedData.image = req.file.filename;
     }
+
+    const user = await service.updateUserById(req.query.id, updatedData);
+
+    if (!user) return resp.status(404).json({ message: 'User Not Found' });
+
+    resp.json(user);
+  } catch (error) {
+    resp.status(500).json({
+      error: error.message,
+    });
+  }
 };
 
 export const getAllUsers= async (req,resp)=>{
