@@ -1,0 +1,22 @@
+import express from 'express'
+import {getUser,setUser,deleteUser,updateUser} from '../controllers/UserContrller.js' //Importing all the functions of out  User Controller
+
+const router=express.Router() 
+/*
+    ✅ const router = express.Router();
+    This line creates a mini Express app (router) that lets you define route handlers in a modular way, separate from the main app.
+
+    It’s used to group related routes together, like all /users routes, or all /products routes, etc.
+
+    🧠 Think of it like this:
+    express() → creates the main application
+
+    express.Router() → creates a sub-router, like a module inside the main app
+*/
+
+router.post('/setUser',setUser)
+router.get('/getUser',getUser)
+router.delete('/deleteUser',deleteUser)
+router.put('/updateUser',updateUser)
+
+export default router
