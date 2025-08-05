@@ -87,7 +87,7 @@ const UserList: React.FC = () => {
                   </Link>
                   <button
                     onClick={() => deleteUser(user._id)}
-                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition duration-200"
+                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition duration-200 mt-3"
                   >
                     Delete
                   </button>
