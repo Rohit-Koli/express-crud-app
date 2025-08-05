@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { User } from '../types/types';
+import type { User } from "../types/types";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -21,7 +21,7 @@ const UserList: React.FC = () => {
 
     try {
       await axios.delete(`http://localhost:3000/user/deleteUser?id=${id}`);
-      setUsers(users.filter(user => user._id !== id));
+      setUsers(users.filter((user) => user._id !== id));
     } catch (error) {
       console.error("Error deleting user:", error);
     }
@@ -33,21 +33,28 @@ const UserList: React.FC = () => {
       <div className="overflow-x-auto bg-white rounded-lg shadow-lg">
         <table className="min-w-full border-collapse">
           <thead>
-            <tr className="bg-gray-200">
-              <th className="border px-4 py-2 text-left">Image</th>
-              <th className="border px-4 py-2 text-left">Name</th>
-              <th className="border px-4 py-2 text-left">Email</th>
-              <th className="border px-4 py-2 text-left">Age</th>
-              <th className="border px-4 py-2 text-left">Actions</th>
+            <tr className="bg-gray-200 text-sm">
+              <th className="border px-4 py-2">Image</th>
+              <th className="border px-4 py-2">Name</th>
+              <th className="border px-4 py-2">Email</th>
+              <th className="border px-4 py-2">Age</th>
+              <th className="border px-4 py-2">Gender</th>
+              <th className="border px-4 py-2">Phone</th>
+              <th className="border px-4 py-2">Address</th>
+              <th className="border px-4 py-2">Birthday</th>
+              <th className="border px-4 py-2">Bio</th>
+              <th className="border px-4 py-2">Hobbies</th>
+              <th className="border px-4 py-2">Skills</th>
+              <th className="border px-4 py-2">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {users.map(user => (
-              <tr key={user._id} className="hover:bg-gray-100 transition duration-200">
+            {users.map((user) => (
+              <tr key={user._id} className="hover:bg-gray-100 text-sm">
                 <td className="border px-4 py-2">
                   {user.image ? (
-                    <img 
-                      src={`http://localhost:3000/uploads/${user.image}`} 
+                    <img
+                      src={`http://localhost:3000/uploads/${user.image}`}
                       alt={user.name}
                       className="w-12 h-12 object-cover rounded-full"
                     />
@@ -58,6 +65,19 @@ const UserList: React.FC = () => {
                 <td className="border px-4 py-2">{user.name}</td>
                 <td className="border px-4 py-2">{user.email}</td>
                 <td className="border px-4 py-2">{user.age}</td>
+                <td className="border px-4 py-2">{user.gender || "-"}</td>
+                <td className="border px-4 py-2">{user.phone || "-"}</td>
+                <td className="border px-4 py-2">{user.address || "-"}</td>
+                <td className="border px-4 py-2">
+                  {user.birthday ? new Date(user.birthday).toLocaleDateString() : "-"}
+                </td>
+                <td className="border px-4 py-2">{user.bio || "-"}</td>
+                <td className="border px-4 py-2">
+                  {user.hobbies?.length ? user.hobbies.join(", ") : "-"}
+                </td>
+                <td className="border px-4 py-2">
+                  {user.skills?.length ? user.skills.join(", ") : "-"}
+                </td>
                 <td className="border px-4 py-2 space-x-2">
                   <Link
                     to={`/update-user/${user._id}`}
