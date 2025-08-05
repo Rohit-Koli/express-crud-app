@@ -1,50 +1,86 @@
 [{
   "_id": {
-    "$oid": "68909dc64040f4c9d56094c8"
+    "$oid": "68919bbffa0d999bdba859ad"
   },
-  "name": "Rohit",
-  "email": "rohit6@balincs.com",
+  "name": "Rohit Koli",
+  "email": "rohit@gmail.com",
   "age": 23,
-  "__v": 0,
-  "image": "1754310051802-813375748.png"
-},
-{
-  "_id": {
-    "$oid": "6890a3b74cde835ef3c3d794"
+  "gender": "Male",
+  "phone": "8794720947",
+  "address": "Shirpur , Maharashtra",
+  "birthday": {
+    "$date": "2002-07-21T00:00:00.000Z"
   },
-  "name": "ABC",
-  "email": "hh@mail.com",
-  "age": 23,
-  "image": "1754309559853-580699838.jpg",
+  "userCreatedAt": "2025-08-05T05:50:55.865Z",
+  "userUpdatedAt": "2025-08-05T07:12:37.438Z",
+  "bio": "Full Stack Developer",
+  "hobbies": [
+    "Playing Cricket",
+    "Dancing"
+  ],
+  "skills": [
+    "Java",
+    "Spring",
+    "MERN",
+    "SQL",
+    "MySQL"
+  ],
+  "image": "1754377957428-191713540.jpeg",
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "6890a6327cc929aa3f7e274d"
+    "$oid": "6891a17afa0d999bdba859c6"
   },
-  "name": "Anjali Verma",
-  "email": "rggrtg@mail.com",
-  "age": 45,
-  "image": "1754310204940-919959994.png",
+  "name": "Jacky Chan",
+  "email": "jacky@mail.com",
+  "age": 70,
+  "gender": "Male",
+  "phone": "8761839802",
+  "address": "China",
+  "birthday": {
+    "$date": "1992-07-07T00:00:00.000Z"
+  },
+  "userCreatedAt": "2025-08-05T06:15:22.666Z",
+  "userUpdatedAt": "2025-08-05T07:14:50.534Z",
+  "bio": "Master of Kung FU",
+  "hobbies": [
+    "Acting",
+    "Dancing"
+  ],
+  "skills": [
+    "Kung Fu",
+    "Marshal Arts",
+    "Karate"
+  ],
+  "image": "1754378090533-591468415.jpg",
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "6890a65e7cc929aa3f7e2753"
+    "$oid": "6891a53b3ccae74993f6e4a1"
   },
-  "name": "jackey Chan",
-  "email": "jacky.chan@mail.com",
-  "age": 56,
-  "image": "1754310374844-349217451.jpg",
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6890a7107cc929aa3f7e2759"
-  },
-  "name": "Sachin Tendulkar",
-  "email": "sachin.cricket@icc.com",
+  "name": "Sachin Ramesh Tendulkar",
+  "email": "sachin@icc.com",
   "age": 60,
-  "image": "1754310416875-716396811.jpg",
+  "gender": "Male",
+  "phone": "1278632134",
+  "address": "Mumbai , Maharashtra",
+  "birthday": {
+    "$date": "1978-06-16T00:00:00.000Z"
+  },
+  "userCreatedAt": "2025-08-05T06:31:23.764Z",
+  "userUpdatedAt": "2025-08-05T07:10:47.366Z",
+  "bio": "Also known as God of cricket ",
+  "hobbies": [
+    "Smashing Bowlers",
+    "Celebrating Centuries"
+  ],
+  "skills": [
+    "Straight Drive",
+    "Cover Drive",
+    "Pull Shot"
+  ],
+  "image": "1754377847362-42618235.jpg",
   "__v": 0
 }]
